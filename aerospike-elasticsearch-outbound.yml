@@ -1,0 +1,24 @@
+# The connector's listening ports, manage service, TLS and network interface.
+service:
+  port: 8901
+  # Aerospike Enterprise Server >= 5.0
+  manage:
+    address: 0.0.0.0
+    port: 8902
+
+# The logging properties
+logging:
+  enable-console-logging: true
+
+
+es-client:
+  cluster-config:
+    type: on-prem
+    nodes:
+      - host:
+          hostname: elasticsearch
+          port: 9200
+  auth-config:
+    type: basic
+    username: elastic
+    password-file: /tmp/pass.txt
